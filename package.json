@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "graphql": "^0.12.3",
+    "graphql-tools": "^2.19.0",
+    "graphql-server-express": "^1.4.0"
+  }
+}
