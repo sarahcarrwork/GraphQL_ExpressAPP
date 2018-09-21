@@ -1,0 +1,38 @@
+Creating a Directory Structure and Running the Express Application
+Execute the following steps to create a directory structure for our application and running the Express application:
+
+Run the following command to install YARN and nodemon globally:
+$ npm install yarn nodemon -g # Globally install yarn and nodemon
+Create a project folder, and inside the folder we will initialize a Node.js application. We will also need a body-parser and a middleware that parses client request bodies.
+Type the following commands:
+# Create project folder and navigate into the folder
+$ mkdir GraphQL-Project && cd $_
+# Create a server folder inside the project folder
+$ mkdir server && cd $_
+# Initializing an application. Will prompt for some answers.
+$ yarn init
+$ yarn add express@^4.9.8 body-parser@^1.9.3
+$ touch server.js # Create main project file.
+At this point, we should have the following folder structure:
+
+
+Inside server.js, create a minimal Express application with a single endpoint, graphql. This application gives a simple response when we navigate to localhost:3500/graphql. Take a look at this code:
+const express = require('express'); // Require express module
+const PORT = 3500; // Server port
+const app = express(); // Create an express application
+app.use('/graphql', (req, res)=> { // Add a route handler
+  res.send( Welcome to Our Authors App");
+});
+app.listen(PORT, ()=> {
+  console.log("Server Running on Port:", PORT);
+});
+Update the package.json file with scripts to run our application:
+...
+"scripts": {
+  "start": "nodemon server.js"
+}
+...
+With the help of preceding commands, we only need to start our server once by running npm start or yarn start, and the server will restart any time we make changes to our code.
+Run the server and make a request that return results:
+Start the server with either yarn start or npm start.
+Navigate to a browser window (preferably Google chrome) with the address http://localhost:3500/graphql. The browser should show Welcome to Our Author's App.
